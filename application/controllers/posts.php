@@ -61,23 +61,14 @@ public function create()
       $config['max_height'] = '500';
 
       $this->load->library('upload',$config);
-      /*if ($this->upload->do_upload()) {
+      if (!$this->upload->do_upload()) {
         # code...
         $errors = array('error' => $this->upload->display_errors());
-        $post_image = 'noimage';
+        $post_image = 'noimage.jpg';
       }else {
         # code...
         $data = array('upload_data' => $this->upload->data());
         $post_image = $_FILES['post_image_X']['name'];
-      }*/
-
-      if (!$this->upload->do_upload('post_image_X')) {
-         $error = array('error' => $this->upload->display_errors());
-         $post_image = 'noimage';
-      }
-      else{
-         $data = array('upload_data' => $this->upload->data());
-         $post_image = $_FILES['post_image_X']['name'];
       }
       $this->Post_model->create_post($post_image);
       redirect('posts');
