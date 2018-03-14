@@ -12,4 +12,34 @@
     <input type="submit" name="" value="delete" class="btn btn-danger">
 
 <a class="btn btn-info" href="<?php echo base_url() ?>posts/edit/<?php echo $post['slug'] ?>">Edit</a>
-  </form>
+</form>
+<hr>
+<h3>Comment</h3>
+<?php if($comments) : ?>
+    <?php foreach($comments as $commentx) : ?>
+    <div class="card">
+      <div class="card-header">
+        <h5><?php echo $commentx['body']; ?>[by <strong><?php echo $commentx['name'] ?></strong>]</h5>
+      </div>
+    </div>
+    <?php endforeach; ?>
+<?php else : ?>
+  <p>No Comments To Display</p>
+<?php endif; ?>
+<h3>Add Comment</h3>
+<?php echo validation_errors(); ?>
+<?php echo form_open('comments/create/'.$post['id']); ?>
+  <div class="form-group">
+    <label for="">Name</label>
+    <input type="text" name="name" class="form-control" value="">
+  </div>
+  <div class="form-group">
+    <label for="">Email</label>
+    <input type="text" name="email" class="form-control" value="">
+  </div>
+  <div class="form-group">
+    <label for="">Body</label>
+    <textarea name="body" rows="8" class="form-control" cols="80"></textarea>
+  </div>
+  <input type="hidden" name="slug" value="<?php echo $post['slug']; ?>">
+  <input type="submit" class="btn btn-danger" name="" value="submit">
