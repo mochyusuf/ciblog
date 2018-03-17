@@ -33,6 +33,8 @@ class Categories extends CI_Controller {
       }else {
         # code...
         $this->category_model->create_category();
+        $this->session->set_flashdata('categories_created','Your categories has been created');
+
         redirect('categories');
       }
   }

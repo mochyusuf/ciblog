@@ -28,6 +28,9 @@
         </ul>
         <ul class="nav navbar-nav navbar-right">
           <li class="nav-item">
+            <a class="nav-link" href="<?php echo base_url(); ?>users/register">Register</a>
+          </li>
+          <li class="nav-item">
             <a class="nav-link" href="<?php echo base_url(); ?>create">Create Post</a>
           </li>
           <li class="nav-item">
@@ -38,3 +41,22 @@
     </nav>
 
     <div class="container">
+        <?php if($this->session->flashdata('user_registered')){ ?>
+          <?php echo '<p class="alert alert-success">'.$this->session->flashdata('user_registered').'</p>'; ?>
+        <?php } ?>
+
+        <?php if($this->session->flashdata('post_created')){ ?>
+          <?php echo '<p class="alert alert-success">'.$this->session->flashdata('post_created').'</p>'; ?>
+        <?php } ?>
+
+        <?php if($this->session->flashdata('post_updated')){ ?>
+          <?php echo '<p class="alert alert-success">'.$this->session->flashdata('post_updated').'</p>'; ?>
+        <?php } ?>
+
+        <?php if($this->session->flashdata('categories_created')){ ?>
+          <?php echo '<p class="alert alert-success">'.$this->session->flashdata('categories_created').'</p>'; ?>
+        <?php } ?>
+
+        <?php if($this->session->flashdata('post_deleted')){ ?>
+          <?php echo '<p class="alert alert-success">'.$this->session->flashdata('post_deleted').'</p>'; ?>
+        <?php } ?>

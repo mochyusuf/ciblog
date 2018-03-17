@@ -73,6 +73,7 @@ public function create()
         $post_image = $_FILES['post_image_X']['name'];
       }
       $this->Post_model->create_post($post_image);
+      $this->session->set_flashdata('post_created','Your post has been created');
       redirect('posts');
     }
 }
@@ -81,6 +82,7 @@ public function delete($id)
 {
     #code
     $this->Post_model->delete_post($id);
+    $this->session->set_flashdata('post_deleted','Your post has been deleted');
     redirect('posts');
 }
 
@@ -103,9 +105,9 @@ public function edit($slug)
 
 public function update()
 {
-    #code
-    #code
     $this->Post_model->update_post($id);
+    $this->session->set_flashdata('post_updated','Your post has been created');
+
     redirect('posts');
 }
 
