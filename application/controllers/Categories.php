@@ -20,6 +20,10 @@ class Categories extends CI_Controller {
 
   public function create()
   {
+      if (!$this->session->userdata('logged_in')) {
+        # code...
+        redirect('users/login');
+      }
       #code
       $data['title'] = "Create Category";
 
