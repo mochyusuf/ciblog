@@ -64,6 +64,7 @@ class Users extends CI_Controller {
           'username' => $username,
           'logged_in'=> true
         );
+        $this->session->set_userdata($user_data);
         $this->session->set_flashdata('user_loggedin','You are now logged in');
         redirect('posts');
       }

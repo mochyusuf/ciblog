@@ -7,3 +7,22 @@
 .post-thumb{
   width: 100%;
 }
+.pagination-links{
+  margin:20px 0;
+}
+.pagination-links strong{
+  padding: 8px 13px;
+  margin:5px;
+  background: #f4f4f4;
+  border: 1px #CCC solid;
+}
+
+a.pagination-links{
+  padding: 8px 13px;
+  margin:5px;
+  background: #A2f5f6;
+  border: 1px #CCC solid;
+}
+.cat-delete{
+  display: inline;
+}

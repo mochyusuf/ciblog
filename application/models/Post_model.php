@@ -8,9 +8,13 @@ class Post_model extends CI_Model {
     $this->load->database();
   }
 
-  public function get_posts($slug = FALSE)
+  public function get_posts($slug = FALSE,$limit = FALSE,$offset = FALSE)
   {
       #code
+      if ($limit) {
+        # code...
+        $this->db->limit($limit,$offset);
+      }
       if ($slug === false) {
         # code...
         $this->db->order_by(' posts.id','DESC');
